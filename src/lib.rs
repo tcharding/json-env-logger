@@ -145,7 +145,7 @@ where
     {
         write!(
             f,
-            "\"timestamp\":{}",
+            "\"timestamp\":\"{}\"",
             std::time::UNIX_EPOCH.elapsed().unwrap().as_millis()
         )?;
     }
