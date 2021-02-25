@@ -159,6 +159,8 @@ where
 
     write!(f, "}}")?;
 
+    write!(f, ",\"target\":\"{}\"", record.target())?;
+
     struct Visitor<'a, W: Write> {
         writer: &'a mut W,
     }
