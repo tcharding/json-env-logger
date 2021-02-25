@@ -132,7 +132,6 @@ where
     F: Write,
 {
     write!(f, "{{")?;
-    write!(f, "\"level\":\"{}\",", record.level())?;
 
     #[cfg(feature = "iso-timestamps")]
     {
@@ -150,7 +149,10 @@ where
             std::time::UNIX_EPOCH.elapsed().unwrap().as_millis()
         )?;
     }
-    write!(f, ",\"msg\":")?;
+
+    write!(f, ",\"level\":\"{}\",", record.level())?;
+
+    write!(f, "\"msg\":")?;
     write_json_str(f, &record.args().to_string())?;
 
     struct Visitor<'a, W: Write> {
