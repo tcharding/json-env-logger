@@ -152,8 +152,12 @@ where
 
     write!(f, ",\"level\":\"{}\",", record.level())?;
 
-    write!(f, "\"msg\":")?;
+    write!(f, "\"fields\":{{")?;
+
+    write!(f, "\"message\":")?;
     write_json_str(f, &record.args().to_string())?;
+
+    write!(f, "}}")?;
 
     struct Visitor<'a, W: Write> {
         writer: &'a mut W,
