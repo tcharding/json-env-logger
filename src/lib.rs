@@ -138,7 +138,7 @@ where
     {
         write!(
             f,
-            "\"ts\":\"{}\"",
+            "\"timestamp\":\"{}\"",
             chrono::Utc::now().to_rfc3339_opts(chrono::SecondsFormat::Millis, true)
         )?;
     }
@@ -146,7 +146,7 @@ where
     {
         write!(
             f,
-            "\"ts\":{}",
+            "\"timestamp\":{}",
             std::time::UNIX_EPOCH.elapsed().unwrap().as_millis()
         )?;
     }
